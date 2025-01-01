@@ -1,7 +1,7 @@
 # Adaptive-RAG-for-Psychological-Assessment
 
-This repository contains the code related to the work ``Are LLMs effective psychological assessors? Leveraging adaptive RAG for interpretable mental health screening 
-through psychometric practice''.
+This repository contains the code related to the work "Are LLMs effective psychological assessors? Leveraging adaptive RAG for interpretable mental health screening 
+through psychometric practice".
 
 
 
