@@ -1,0 +1,4 @@
+Consider the following Reddit post: {REDDIT POSTS}. 
+These posts are the most relevant posts from the user according to the item: {ITEM NAME}. 
+Which of the following choices do you think is the most appropriate response: {CHOICES}.\n\n
+Report only the final score single score, only one value between 0 and 3 included based on the intensity of {ITEM}.
