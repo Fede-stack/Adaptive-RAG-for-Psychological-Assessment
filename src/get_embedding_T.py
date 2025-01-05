@@ -1,3 +1,4 @@
+# Extract posts and items' embeddings with Transformers
 import torch
 from transformers import AutoTokenizer, AutoModel
 
