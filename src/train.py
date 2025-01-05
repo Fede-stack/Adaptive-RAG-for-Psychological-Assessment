@@ -2,9 +2,16 @@ import gc
 from typing import List, Tuple, Optional
 from tqdm import tqdm
 import numpy as np
-import itertools
 import openai
 from dataclasses import dataclass
+import itertools
+from scipy.stats import ks_2samp
+from sklearn.neighbors import NearestNeighbors
+rng = np.random.default_rng()
+import pandas as pd
+from dadapy import Data
+from dadapy._utils import utils as ut
+import os
 
 @dataclass
 class Data:
@@ -24,7 +31,7 @@ def train(cosine: bool, type_embs: int) -> List[np.ndarray]:
     predictions_tot_gpt: List[np.ndarray] = []
     error_indices: List[Tuple[int, int]] = []
     
-    #Process each user
+    #process each user
     for user_idx in tqdm(range(len(docss)), desc="Processing Users"):
         # Get document embeddings based on type
         doc_embeddings = _get_embeddings_by_type(docss[user_idx], type_embs)
@@ -34,7 +41,7 @@ def train(cosine: bool, type_embs: int) -> List[np.ndarray]:
         predictions_gpt = _generate_gpt_predictions(documents_retrieved)
         predictions_tot_gpt.append(predictions_gpt)
         
-        # Clean up memory
+        #clean up memory
         gc.collect()
     
     return predictions_tot_gpt
@@ -99,7 +106,7 @@ def _generate_gpt_predictions(documents_retrieved: List[List[str]]) -> np.ndarra
         posts.sort()
         posts_final = '\n '.join(posts)
         
-        # Prepare content for LLM
+        #Prepare content for LLM
         content = ''.join([
             f"{i} {item}\n "
             for i, item in enumerate(bdi_items[i])
