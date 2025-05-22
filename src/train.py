@@ -94,7 +94,7 @@ def _process_item_embeddings(
     return documents_retrieved
 
 def _generate_gpt_predictions(documents_retrieved: List[List[str]]) -> np.ndarray:
-    zero_shot_scores_gpt = []
+    zero_shot_scores = []
     
     for i in range(21):
         # Process retrieved documents
@@ -114,15 +114,15 @@ def _generate_gpt_predictions(documents_retrieved: List[List[str]]) -> np.ndarra
         
         #Generate LLM response
         response = openai.chat.completions.create(
-            model="gpt-4o-mini",
+            model=MODEL_ID,
             messages=[
                 {"role": "system", "content": instructions},
                 {"role": "user", "content": prompt}
             ],
             temperature=0,
-            max_tokens=3
+            max_tokens=MaxTokens
         )
         
-        zero_shot_scores_gpt.append(response.choices[0].message.content)
+        zero_shot_scores.append(response.choices[0].message.content)
     
     return np.array(zero_shot_scores_gpt)
