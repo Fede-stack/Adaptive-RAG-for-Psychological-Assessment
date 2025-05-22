@@ -10,11 +10,11 @@ through psychometric practice".
 
 To cite this work refer to:
 
-´´´bibtex
+```bibtex
 @article{ravenda2025llms,
   title={Are LLMs effective psychological assessors? Leveraging adaptive RAG for interpretable mental health screening through psychometric practice},
   author={Ravenda, Federico and Bahrainian, Seyed Ali and Raballo, Andrea and Mira, Antonietta and Kando, Noriko},
   journal={arXiv preprint arXiv:2501.00982},
   year={2025}
 }
-´´´
+```
