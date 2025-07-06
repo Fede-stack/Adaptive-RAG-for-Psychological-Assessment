@@ -4,7 +4,7 @@ def train_zeroshot(cosine, type_embs, documents_retrieved):
     predictions_collection = []
     
     for doc_idx in range(len(docss)):
-        # Dynamic embedding generation based on model type
+        #embedding generation based on model type
         doc_embeddings = {
             1: lambda: get_embedding(docss[doc_idx], model),
             2: lambda: get_embedding(docss[doc_idx], model, tokenizer),
