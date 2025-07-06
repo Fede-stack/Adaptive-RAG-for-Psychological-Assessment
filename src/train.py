@@ -26,7 +26,7 @@ def train_zeroshot(cosine, type_embs, documents_retrieved):
                 for idx, item in enumerate(bdi_items[item_idx])
             ])
             
-            #
+            # openai example
             response = openai.chat.completions.create(
                 model="gpt-4o-mini",
                 messages=[
@@ -45,7 +45,7 @@ def train_zeroshot(cosine, type_embs, documents_retrieved):
             
             assessment_scores.append(response.choices[0].message.content)
         
-        # Store predictions and display results
+        #store predictions and display results
         current_predictions = np.array(assessment_scores)
         predictions_collection.append(current_predictions)
         
