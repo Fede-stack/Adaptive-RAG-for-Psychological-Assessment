@@ -43,13 +43,13 @@ class AdaptiveRetrieval:
         self.random_seed = random_seed
         self.verbose = verbose
         
-        # Set seed for reproducibility
+        #Set seed for reproducibility
         self.set_seed(random_seed)
         
-        # Initialize random number generator
+        #Initialize random number generator
         self.rng = np.random.default_rng(random_seed)
         
-        # Setup logging
+        #Setup logging
         if verbose:
             logging.basicConfig(level=logging.INFO)
         self.logger = logging.getLogger(__name__)
@@ -121,10 +121,10 @@ class AdaptiveRetrieval:
             n_model = self.rng.binomial(data.kstar-1, r_eff**id_current, size=len(n))
             ks, pv = ks_2samp(n-1, n_model)
             
-            # Set new id
+            #Set new id
             data.set_id(id_current)
             
-            # Store results
+            #Store results
             ids[i] = id_current
             ids_err[i] = id_err
             kstars[i] = data.kstar
@@ -256,13 +256,14 @@ def set_seed(seed):
         torch.backends.cudnn.benchmark = False
 
 set_seed(42)
-model = SentenceTransformer('sentence-transformers/msmarco-MiniLM-L-12-v3')
+model = SentenceTransformer(MODEL_ST_ID)
 
 def get_embedding(text, model):
     return model.encode(text)
 
 #get BDI-II item embeddings
 items_embs = get_embedding(sentences_bdi, model)
+# sentences_bdi is defined in BDI-II/bdi_choices.py
 
 #initialize adaptive retrieval system
 adaptive_retriever = AdaptiveRetrieval(
