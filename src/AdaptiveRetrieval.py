@@ -281,6 +281,11 @@ warnings.filterwarnings('ignore')
 docs_retrieved = []
 error_indices = []
 
+#########################################################
+# docss is a list of posts for each user. docss will have
+# shape (number_of_user_in_dataset, number_of_all_posts)
+#########################################################
+
 for j in range(len(docss)):
 
     doc_embeddings = get_embedding(docss[j], model) 
