@@ -19,7 +19,7 @@ class AdaptiveRetrieval:
     """
     
     def __init__(self, 
-                 dthr: float = 6.67,
+                 dthr: float = 6.67, #acceptance rate, try also with 23.92812698,
                  r: Union[str, float] = 'opt',
                  n_iter: int = 10,
                  cosine_metric: bool = True,
