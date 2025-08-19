@@ -29,16 +29,7 @@ def train_zeroshot(cosine, type_embs, documents_retrieved):
             # openai example
             response = openai.chat.completions.create(
                 model="gpt-4o-mini",
-                messages=[
-                    {
-                        "role": "system", 
-                        "content": ""
-                    },
-                    {
-                        "role": "user", 
-                        "content": f""
-                    }
-                ],
+                messages=[ ],
                 temperature=0,
                 max_tokens=3
             )
